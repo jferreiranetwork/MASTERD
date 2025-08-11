@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <title>Website AJAX Dinâmico</title>
+
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+    rel="stylesheet"
+  />
+
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="https://campus.masterd.pt/campusvirtual/assets/images/favicon.png"
+  />
+
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  ></script>
+
+  <script src="./js/script.js"
+  ></script>
+
+</head>
+
+<body>
+  <div id="navbar-container"></div>
+
+  <div class="row mt-3">
+    <div class="col-sm-9 mb-3" id="content-container">
+      <div id="content"></div>
+    </div>
+
+    <div class="col-sm-3">
+      <h5 class="text-center">Notícias RTP</h5>
+      <div id="noticias-rtp" class="list-group"></div>
+    </div>
+  </div>
+
+
+  <div
+    class="modal fade text-center"
+    id="modalProjeto"
+    tabindex="-1"
+    aria-labelledby="modalProjetoLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title w-100 text-center" id="modalProjetoLabel">
+            Título do Projeto
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Fechar"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <img
+            id="imagemProjeto"
+            src=""
+            alt=""
+            class="img-fluid mb-3"
+          />
+          <p id="descricaoProjeto"></p>
+          <p>
+            <strong>Tecnologias:</strong>
+            <span id="tecnologiasProjeto"></span>
+          </p>
+          <p>
+            <strong>Ano:</strong>
+            <span id="dataProjeto"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

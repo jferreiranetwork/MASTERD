@@ -1,0 +1,34 @@
+<div id="map"></div>
+
+<section>
+  <p>Morada: Rua Exemplo 123, Lisboa, Portugal</p>
+  <p>Telefone: +351 xxx xxx xxx</p>
+  <p>Email: geral@masterd.pt</p>
+</section>
+
+<section>
+  <h2>Deixe os seus dados de contacto</h2>
+  <form id="contactForm" novalidate>
+    <label for="nome">Nome *</label>
+    <input type="text" id="nome" name="nome" required pattern="[A-Za-zÀ-ú\s]+" title="Só letras e espaços" />
+
+    <label for="apelido">Apelido *</label>
+    <input type="text" id="apelido" name="apelido" required pattern="[A-Za-zÀ-ú\s]+" title="Só letras e espaços" />
+
+    <label for="telemovel">Telemóvel *</label>
+    <input type="tel" id="telemovel" name="telemovel" required pattern="^\+?\d{9,15}$" title="Número válido, ex: +351912345678" />
+
+    <label for="email">E-mail *</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="data">Data *</label>
+    <input type="date" id="data" name="data" required />
+
+    <label for="motivo">Motivo da Reunião *</label>
+    <textarea id="motivo" name="motivo" rows="4" required></textarea>
+
+    <button type="submit" class="btn btn-primary">Enviar</button>
+    <p id="errorMsg" class="error"></p>
+  </form>
+</section>
+
