@@ -1,60 +1,61 @@
-<div class="formulario">
-    <h2>Pedido de Orçamento</h2>
+<div class="row  mx-3 mt-4" style="display: flex; justify-content: space-between; ">
+    <div class="formulario md-6 mb-3 " style="flex: 1;">
+        <h2 class="text-center">Simulador</h2>
 
-    <div id="error_msg" style="display: none; background-color: red; color: white; margin: 5px; text-align: center; padding: 5px; font-weight: bold;"></div>
-    <div id="success_msg" style="display: none; background-color: green; color: white; margin: 5px; text-align: center; padding: 5px; font-weight: bold;"></div>
+        <div id="error_msg" style="display: none; background-color: red; color: white; margin: 5px; text-align: center; padding: 5px; font-weight: bold;"></div>
+        <div id="success_msg" style="display: none; background-color: green; color: white; margin: 5px; text-align: center; padding: 5px; font-weight: bold;"></div>
 
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" placeholder="Introduza o seu nome...">
 
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" placeholder="Introduza o seu nome...">
+        <label for="apelido">Apelido:</label>
+        <input type="text" id="apelido" placeholder="Introduza o seu apelido...">
 
-    <label for="apelido">Apelido:</label>
-    <input type="text" id="apelido" placeholder="Introduza o seu apelido...">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Introduza o seu email...">
 
-    <label for="email">Email:</label>
-    <input type="email" id="email" placeholder="Introduza o seu email...">
+        <label for="tipo_pagina">Tipo de página Web:</label>
+        <select id="tipo_pagina">
+            <option value="300">Simples (300€)</option>
+            <option value="600">Completa (600€)</option>
+            <option value="900">E-Commerce (900€)</option>
+            <option value="1200">Portal (1200€)</option>
+        </select>
 
-    <label for="tipo_pagina">Tipo de página Web:</label>
-    <select id="tipo_pagina">
-        <option value="300">Simples (300€)</option>
-        <option value="600">Completa (600€)</option>
-        <option value="900">E-Commerce (900€)</option>
-        <option value="1200">Portal (1200€)</option>
-    </select>
+        <label for="prazo_meses">Prazo em meses:</label>
+        <input type="number" id="prazo_meses" min="1" max="100" value="1" />
 
-    <label for="prazo_meses">Prazo em meses:</label>
-    <input type="number" id="prazo_meses" min="1" max="100" value="1" />
+        <h2>Selecione os separadores desejados:</h2>
+        <div class="checkbox-container">
+            <div class="checkbox-item">
+                <input type="checkbox" id="quem_somos">
+                <label for="quem_somos">Quem somos</label>
+            </div>
 
-    <h2>Selecione os separadores desejados</h2>
+            <div class="checkbox-item">
+                <input type="checkbox" id="onde_estamos">
+                <label for="onde_estamos">Onde estamos</label>
+            </div>
 
-    <div class="checkbox-item">
-        <input type="checkbox" id="quem_somos">
-        <label for="quem_somos">Quem somos</label>
+            <div class="checkbox-item">
+                <input type="checkbox" id="galeria">
+                <label for="galeria">Galeria</label>
+            </div>
+
+            <div class="checkbox-item">
+                <input type="checkbox" id="redes_sociais">
+                <label for="redes_sociais">Redes Sociais</label>
+            </div>
+        </div>
+
+        <h3>Valor do orçamento (€):</h3><br>
+        <input type="number" id="valor" placeholder="Valor do Orçamento...">
+
+        <button id="enviar" class="btn btn-primary">Simular Orçamento</button>
     </div>
 
-    <div class="checkbox-item">
-        <input type="checkbox" id="onde_estamos">
-        <label for="onde_estamos">Onde estamos</label>
+    <div class="col-md-6 d-flex mt-3justify-content-center align-items-center">
+        <img src="img/orcamento.jpg" alt="Orçamento" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
     </div>
 
-    <div class="checkbox-item">
-        <input type="checkbox" id="galeria">
-        <label for="galeria">Galeria</label>
-    </div>
-
-    <div class="checkbox-item">
-        <input type="checkbox" id="noticias">
-        <label for="noticias">Notícias</label>
-    </div>
-
-    <div class="checkbox-item">
-        <input type="checkbox" id="redes_sociais">
-        <label for="redes_sociais">Redes Sociais</label>
-    </div>
-
-    <h3>Valor do orçamento</h3>
-    <p>(É um valor meramente indicativo, pode sofrer alterações)</p>
-    <input type="number" id="valor" placeholder="Valor do Orçamento...">
-
-    <button id="enviar" class="btn btn-primary">Enviar Orçamento</button>
 </div>
