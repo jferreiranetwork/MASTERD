@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Nov-2025 às 16:31
--- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.2.12
+-- Generation Time: Nov 07, 2025 at 04:44 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `masterd`
+-- Database: `masterd`
 --
 CREATE DATABASE IF NOT EXISTS `masterd` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `masterd`;
@@ -26,10 +26,9 @@ USE `masterd`;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `consultas`
+-- Table structure for table `consultas`
 --
 
-DROP TABLE IF EXISTS `consultas`;
 CREATE TABLE `consultas` (
   `id` int(11) NOT NULL,
   `cliente_id` int(11) NOT NULL,
@@ -40,23 +39,12 @@ CREATE TABLE `consultas` (
   `data_criacao` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Extraindo dados da tabela `consultas`
---
-
-INSERT INTO `consultas` (`id`, `cliente_id`, `data`, `categoria`, `organizador`, `estado`, `data_criacao`) VALUES
-(15, 13, '2025-10-23 17:01:00', 'APP Reservas', 'Paulo Fernandes', 'confirmada', '2025-10-20 16:01:29'),
-(26, 13, '2025-10-22 10:43:00', 'APP RESERVAS', 'tutor teste', 'pendente', '2025-10-24 09:43:25'),
-(29, 13, '2025-10-31 11:13:00', 'APP RESERVASeqwe', 'Paulo Fernandes', 'pendente', '2025-10-27 11:16:13'),
-(30, 14, '2025-11-11 13:54:00', 'APP RESERVA', 'Paulo Fernandes', 'pendente', '2025-11-07 13:55:33');
-
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `noticias`
+-- Table structure for table `noticias`
 --
 
-DROP TABLE IF EXISTS `noticias`;
 CREATE TABLE `noticias` (
   `id` int(11) NOT NULL,
   `titulo` varchar(150) NOT NULL,
@@ -68,7 +56,7 @@ CREATE TABLE `noticias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `noticias`
+-- Dumping data for table `noticias`
 --
 
 INSERT INTO `noticias` (`id`, `titulo`, `descricao`, `autor`, `imagem`, `tipo_mime`, `data_publicacao`) VALUES
@@ -82,10 +70,9 @@ INSERT INTO `noticias` (`id`, `titulo`, `descricao`, `autor`, `imagem`, `tipo_mi
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `projetos`
+-- Table structure for table `projetos`
 --
 
-DROP TABLE IF EXISTS `projetos`;
 CREATE TABLE `projetos` (
   `id` int(11) NOT NULL,
   `titulo` varchar(100) NOT NULL,
@@ -97,7 +84,7 @@ CREATE TABLE `projetos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `projetos`
+-- Dumping data for table `projetos`
 --
 
 INSERT INTO `projetos` (`id`, `titulo`, `descricao`, `tecnologia`, `tipo_mime`, `imagem`, `data_criacao`) VALUES
@@ -109,10 +96,9 @@ INSERT INTO `projetos` (`id`, `titulo`, `descricao`, `tecnologia`, `tipo_mime`, 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `utilizadores`
+-- Table structure for table `utilizadores`
 --
 
-DROP TABLE IF EXISTS `utilizadores`;
 CREATE TABLE `utilizadores` (
   `id` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
@@ -126,78 +112,76 @@ CREATE TABLE `utilizadores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Extraindo dados da tabela `utilizadores`
+-- Dumping data for table `utilizadores`
 --
 
 INSERT INTO `utilizadores` (`id`, `nome`, `apelido`, `email`, `password`, `telefone`, `funcao`, `imagem`, `data_registo`) VALUES
-(1, 'João', 'Ferreira', 'teste@teste.pt', '$2y$10$TXQ.0wacFtk7WlJGE9vg.urpCI9RhNEcsBxHlx93Yy5iqnfbLVk9u', 0, 'admin', 'https://gimgs2.nohat.cc/thumb/f/640/download-person-icon-orange-clipart-computer-icons-user-icon-orange-png--m2H7G6A0Z5b1K9K9.jpg', '2025-10-02 14:34:46'),
-(13, 'teste1', 'teste1', 'teste1@teste1.pt', '123456', 0, 'cliente', 'https://gimgs2.nohat.cc/thumb/f/640/download-person-icon-orange-clipart-computer-icons-user-icon-orange-png--m2H7G6A0Z5b1K9K9.jpg', '2025-10-16 08:56:23'),
-(14, 'João', 'Ferreira', 'joao.ferreira@wondercom.pt', '$2y$10$fGXTVjax21CgfmInNzryieHrHNgouWI6e9SSDhHI6YeGP4znzBV0C', 0, 'cliente', 'https://gimgs2.nohat.cc/thumb/f/640/download-person-icon-orange-clipart-computer-icons-user-icon-orange-png--m2H7G6A0Z5b1K9K9.jpg', '2025-11-07 12:07:51');
+(1, 'João', 'Ferreira', 'admin@masterd.pt', '$2y$10$CFayf7bLDPCrKi4U29PPQef86m5qC7WN66bfeiJZuDCiHxkSP6kyW', 0, 'admin', 'https://gimgs2.nohat.cc/thumb/f/640/download-person-icon-orange-clipart-computer-icons-user-icon-orange-png--m2H7G6A0Z5b1K9K9.jpg', '2025-10-02 14:34:46');
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `consultas`
+-- Indexes for table `consultas`
 --
 ALTER TABLE `consultas`
   ADD PRIMARY KEY (`id`),
   ADD KEY `cliente_id` (`cliente_id`);
 
 --
--- Índices para tabela `noticias`
+-- Indexes for table `noticias`
 --
 ALTER TABLE `noticias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `projetos`
+-- Indexes for table `projetos`
 --
 ALTER TABLE `projetos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `utilizadores`
+-- Indexes for table `utilizadores`
 --
 ALTER TABLE `utilizadores`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `consultas`
+-- AUTO_INCREMENT for table `consultas`
 --
 ALTER TABLE `consultas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT de tabela `noticias`
+-- AUTO_INCREMENT for table `noticias`
 --
 ALTER TABLE `noticias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT de tabela `projetos`
+-- AUTO_INCREMENT for table `projetos`
 --
 ALTER TABLE `projetos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT de tabela `utilizadores`
+-- AUTO_INCREMENT for table `utilizadores`
 --
 ALTER TABLE `utilizadores`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- Restrições para despejos de tabelas
+-- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `consultas`
+-- Constraints for table `consultas`
 --
 ALTER TABLE `consultas`
   ADD CONSTRAINT `consultas_ibfk_1` FOREIGN KEY (`cliente_id`) REFERENCES `utilizadores` (`id`);

@@ -2,12 +2,7 @@
 require 'connectdb.php'; // Inclui a conexão com a base de dados
 session_start(); // Inicia a sessão PHP, necessária para login, CSRF, tentativas de login
 
-// Forçar HTTPS para segurança
-if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] !== 'on') {
-    // Redireciona para a versão HTTPS da página se não estiver usando
-    header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
-    exit();
-}
+
 
 // Inicializar contadores de tentativas de login
 if (!isset($_SESSION['login_attempts'])) {
