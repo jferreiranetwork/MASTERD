@@ -325,10 +325,9 @@ formCriar.addEventListener('submit', async function(event) {
     const data = await res.json();
 
     if (data.status === "success") {
-      alert("Noticia criada com sucesso!");
-      atualizarTabelaNoticias();
-      bootstrap.Modal.getInstance(document.getElementById("modalCriarNoticia")).hide();
-      formCriar.reset();
+      alert("Perfil alterado com sucesso!");
+      // redirecionar para a página de início do administrador
+      window.location.href = '../';
     } else {
       alert(data.message || "Erro ao criar projeto.");
     }

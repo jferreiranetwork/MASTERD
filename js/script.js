@@ -466,20 +466,7 @@ async function carregarNoticiaCorpo(id) {
   }
 
 
-/**
- * Mostra o mapa com a localização da MasterD e permite
- * ao usuário ver a rota até a localização da MasterD.
- *
- * Se o navegador suportar a API de geolocalização, ele
- * irá pedir ao usuário para compartilhar sua localização.
- * Se o usuário compartilhar sua localização, uma rota será
- * desenhada no mapa, ligando a localização do usuário à
- * localização da MasterD.
- *
- * Se o navegador não suportar a API de geolocalização, um
- * alerta será exibido informando ao usuário que a
- * geolocalização não é suportada pelo navegador.
- */
+
 function formcontato() {
   const officeLatLng = [38.733555, -9.141132];
 

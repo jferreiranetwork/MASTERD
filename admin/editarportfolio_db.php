@@ -138,8 +138,8 @@ if ($method === 'POST' && isset($_POST['action']) && $_POST['action'] === 'criar
     $descricao = escape($_POST['descricao']);
     $tecnologia = escape($_POST['tecnologia']);
     $imagemTmp = $_FILES['imagem']['tmp_name'];
-    $tipoMime = mime_content_type($imagemTmp); // ex: image/png
-    $dadosImagem = file_get_contents($imagemTmp); // pega conteúdo binário
+    $tipoMime = mime_content_type($imagemTmp); 
+    $dadosImagem = file_get_contents($imagemTmp); 
     if (empty($titulo) || empty($descricao) || empty($tecnologia) || empty($imagemTmp)) {
         echo json_encode(['status'=>'error','message'=>'Dados incompletos']);
         exit;
@@ -150,7 +150,7 @@ if ($method === 'POST' && isset($_POST['action']) && $_POST['action'] === 'criar
     $stmt->bindParam(2, $descricao);
     $stmt->bindParam(3, $tecnologia);
     $stmt->bindParam(4, $tipoMime);
-    $stmt->bindParam(5, $dadosImagem, PDO::PARAM_LOB); // armazena como BLOB
+    $stmt->bindParam(5, $dadosImagem, PDO::PARAM_LOB);
     if ($stmt->execute()) {
         echo json_encode(['status'=>'success','message'=>'Projeto criado com sucesso']);
         exit;

@@ -17,7 +17,7 @@ try {
     switch ($action) {
 
         case 'listar_noticias':
-            $stmt = $pdo->query("SELECT id, titulo, descricao, autor, imagem, tipo_mime FROM noticias ORDER BY id DESC");
+            $stmt = $pdo->query("SELECT id, titulo, descricao, data_publicacao, autor, imagem, tipo_mime FROM noticias ORDER BY id DESC");
             $noticias = [];
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

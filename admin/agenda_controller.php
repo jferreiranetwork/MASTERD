@@ -61,7 +61,7 @@ if ($method === 'POST') {
             $diffHoras = ($dataConsulta->getTimestamp() - $dataAtual->getTimestamp()) / 3600;
 
             if ($diffHoras < 72) {
-               echo json_encode(['status'=>'error','message' => 'Consultas devem ser marcadas com pelo menos 72 horas de antecedência. Faltam apenas horas.']);
+               echo json_encode(['status'=>'error','message' => 'Consultas devem ser marcadas com pelo menos 72 horas de antecedência.']);
 
                exit;
             }

@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_id']) ) {
 
 
 
-$input = json_decode(file_get_contents('php://input'), true);
+$input = $_POST; // ou json_decode(file_get_contents('php://input'), true);
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
@@ -34,33 +34,40 @@ try {
         case 'editar_perfil':
             $id = $_SESSION['user_id'];
             $nome = trim($input['nome']);
+            $apelido = trim($input['apelido']);
             $email = trim($input['email']);
-            $password = trim($input['pw_atual']);
-            $nova_password = trim($input['nova_pw']);
-            $confirmar_password = trim($input['confirmar_pw']);
+            $password_atual = trim($input['pw_atual']);
+            $nova_password = trim($input['nova_pw'] ?? '');
+            $confirmar_password = trim($input['confirmar_pw'] ?? '');
 
-            if ($password !== $_SESSION['password']) {
-                echo json_encode(['status' => 'error', 'message' => 'Senha atual incorreta.']);
+            // Verifica a password atual
+            if (!password_verify($password_atual, $_SESSION['password'])) {
+                echo json_encode(['status' => 'error', 'message' => 'Password atual incorreta.']);
                 exit;
             }
 
-            if ($nova_password !== $confirmar_password) {
+            // Se houver nova senha, verifica se bate com a confirmação
+            if (!empty($nova_password) && $nova_password !== $confirmar_password) {
                 echo json_encode(['status' => 'error', 'message' => 'As passwords novas devem ser iguais.']);
                 exit;
             }
 
 
+            $fields = 'nome = :nome, apelido = :apelido, email = :email';
+            $params = [
+                ':id' => $id,
+                ':nome' => $nome,
+                ':apelido' => $apelido,
+                ':email' => $email
+            ];
+
             if (!empty($nova_password)) {
-                $password = password_hash($nova_password, PASSWORD_DEFAULT);
+                $fields .= ', password = :password';
+                $params[':password'] = password_hash($nova_password, PASSWORD_DEFAULT);
             }
 
-
-            $stmt = $pdo->prepare("UPDATE users SET nome = :nome, email = :email, password = :password WHERE id = :id");
-            $stmt->bindParam(':id', $id);
-            $stmt->bindParam(':nome', $nome);
-            $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':password', $password);
-            $stmt->execute();
+            $stmt = $pdo->prepare("UPDATE utilizadores SET $fields WHERE id = :id");
+            $stmt->execute($params);
 
             echo json_encode(['status' => 'success', 'message' => 'Perfil atualizado com sucesso']);
             exit;
@@ -75,3 +82,4 @@ try {
     echo json_encode(['status' => 'error', 'message' => 'Erro no servidor: ' . $e->getMessage()]);
     exit;
 }
+

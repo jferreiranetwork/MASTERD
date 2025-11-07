@@ -37,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-    // Decide de onde pegar os dados
     $username = trim($input['username'] ??  '');
     $password = trim($input['password'] ?? '');
     $csrf_token = $input['csrf_token'] ?? '';
@@ -82,12 +81,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nome'] = $user['nome']; // Guarda o nome na sessão
         $_SESSION['apelido'] = $user['apelido']; // Guarda o apelido na sessão
         $_SESSION['email'] = $user['email']; // Guarda o email na sessão
-        $_SESSION['password'] = $user ['password'];  // Guarda a password na sessão, evitando XSS
+        $_SESSION['password'] = $user['password'];  // Guarda a password na sessão, evitando XSS
         $_SESSION['LAST_ACTIVITY'] = time(); // Inicializa o controle de tempo de atividade
         $_SESSION['csrf_token'] = bin2hex(random_bytes(32)); // Gera um novo token CSRF
         // Guarda o username na sessão, evitando XSS
         $_SESSION['username'] = htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8');
-        $_SESSION['login_attempts'] = 0; // Resetar tentativas
+        $_SESSION['login_attempts'] = 0; // Reset tentativas
         echo json_encode([
             'status' => 'login_success',
             'redirect' => './admin/' // Página para redirecionar após login bem-sucedido

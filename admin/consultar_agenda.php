@@ -35,7 +35,7 @@ if (!isset($_SESSION['user_id'])) {
         </div>
         <br>
         <hr>
-        <!-- row end-->
+
         <div class="row">
             <div class="col-lg-12">
                 <div class="tab-content" id="myTabContent">
@@ -64,9 +64,9 @@ if (!isset($_SESSION['user_id'])) {
 
                 </div>
             </div>
-            <!-- /col end-->
+
         </div>
-        <!-- /row end-->
+
     </div>
 </div>
 
